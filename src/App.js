@@ -3,6 +3,8 @@ import './App.css';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import Register from './components/Register';
+import Login from './components/Login';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <p>Initialize app with Firebase</p>
+      <a href="/login">Login</a> or <a href="/register">Register</a>
     </div>
   );
 }
