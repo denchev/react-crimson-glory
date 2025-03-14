@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import { Outlet } from 'react-router';
+
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import Register from './components/Register';
-import Login from './components/Login';
+import Nav from './components/Nav';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,8 +25,8 @@ const app = initializeApp(firebaseConfig);
 function App() {
   return (
     <div className="App">
-      <p>Initialize app with Firebase</p>
-      <a href="/login">Login</a> or <a href="/register">Register</a>
+      <Nav />
+      <Outlet />
     </div>
   );
 }

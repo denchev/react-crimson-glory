@@ -4,7 +4,6 @@ export default function Login() {
     return (
         <>
             <div>Login</div>
-            <a href="/">go back</a>
         </>
     );
 }
