@@ -1,7 +1,8 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Button, TextField, Grid2 as Grid, Alert, Stack} from '@mui/material';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { auth } from "../config/firebase";
+import { useAuth } from "../context/AuthContext";
 
 export default function Register() {
     const [email, setEmail] = useState('');
@@ -9,6 +10,7 @@ export default function Register() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
     const [isPending, setIsPending] = useState(false);
+    const {user, loading} = useAuth();
 
     const signUp = async () => {
         try {
@@ -30,6 +32,8 @@ export default function Register() {
     }
 
     return (
+        <>
+        {user ? <div>Вие вече сте влязъл в приложението</div> : 
         <Stack spacing={2}>
             {errorMessage && <Alert severity="warning">{errorMessage}</Alert>}
             {successMessage && <Alert severity="success">{successMessage}</Alert>}
@@ -46,6 +50,7 @@ export default function Register() {
                     </Grid>
                 </Grid>
             </form>
-        </Stack>
+        </Stack>}
+        </>
     );
 }

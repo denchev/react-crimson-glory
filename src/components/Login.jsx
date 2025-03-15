@@ -29,14 +29,6 @@ export default function Login() {
         }
     }
 
-    const logout = async () => {
-        try {
-            await signOut(auth);
-        } catch (e) {
-            console.error(e.message);
-        }
-    }
-
     useEffect(() => {
         setHasSignedIn(!!auth?.currentUser);
         onAuthStateChanged(auth, (user) => {
@@ -60,9 +52,6 @@ export default function Login() {
                     </Grid>
                     <Grid size={12}>
                         <Button variant="contained" onClick={signInWithGoogle} disabled={hasSignedIn}>Вход с Google</Button>
-                    </Grid>
-                    <Grid size={12}>
-                    {hasSignedIn && <Button variant="contained" onClick={logout}>Изход {auth.currentUser.email}</Button>}
                     </Grid>
                 </Grid>
                 
