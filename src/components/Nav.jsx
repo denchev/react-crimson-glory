@@ -15,7 +15,7 @@ export default function Nav() {
 
     return (
         <>
-            <ul>
+            <ul className="nav">
                 <li><a href="/">Начало</a></li>
                 <li><a href="/login">Вход</a></li>
                 <li><a href="/register">Регистрация</a></li>
