@@ -3,14 +3,20 @@ import { Outlet } from 'react-router';
 import Nav from './components/Nav';
 import { Container } from '@mui/material';
 import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
+import WrappedTheme from './components/WrappedTheme';
 
 function App() {
   return (
     <AuthProvider>
-      <Container>
-        <Nav />
-        <Outlet />
-      </Container>
+      <ThemeProvider>
+        <WrappedTheme>
+          <Container>
+            <Nav />
+            <Outlet />
+        </Container>
+      </WrappedTheme>
+      </ThemeProvider>
     </AuthProvider>
   );
 }
