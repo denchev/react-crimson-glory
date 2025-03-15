@@ -3,6 +3,7 @@ import { auth, googleProvider} from "../config/firebase";
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { Button, TextField, Grid2 as Grid, Alert, Stack } from '@mui/material';
 import { useAuth } from "../context/AuthContext";
+import GoogleIcon from '@mui/icons-material/Google';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -45,7 +46,7 @@ export default function Login() {
                         <Button variant="contained" onClick={signIn} disabled={user}>Вход</Button>
                     </Grid>
                     <Grid size={12}>
-                        <Button variant="contained" onClick={signInWithGoogle} disabled={user}>Вход с Google</Button>
+                        <Button sx={{gap: 1}} variant="contained" onClick={signInWithGoogle} disabled={user}><GoogleIcon />   Вход с Google</Button>
                     </Grid>
                 </Grid>
                 
