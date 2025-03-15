@@ -10,12 +10,12 @@ export default function Register() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
     const [isPending, setIsPending] = useState(false);
-    const {user, loading} = useAuth();
+    const {user} = useAuth();
 
     const signUp = async () => {
         try {
             setIsPending(true);
-            const result = await createUserWithEmailAndPassword(auth, email, password);
+            await createUserWithEmailAndPassword(auth, email, password);
             setSuccessMessage('Вие се регистрирахте успешно');
             setErrorMessage(null);
             

@@ -3,7 +3,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../config/firebase";
 
 export default function Nav() {
-    const {user, loading} = useAuth();
+    const {user} = useAuth();
 
     const logout = async () => {
         try {
@@ -19,7 +19,7 @@ export default function Nav() {
                 <li><a href="/">Начало</a></li>
                 <li><a href="/login">Вход</a></li>
                 <li><a href="/register">Регистрация</a></li>
-                {user && <li><a href="#" onClick={() => logout()}>Изход {user.email}</a></li>}
+                {user && <li><button type="button" onClick={() => logout()}>Изход {user.email}</button></li>}
             </ul>
         </>
     )
